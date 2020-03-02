@@ -6,7 +6,8 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 // @ts-ignore
 import { User } from '@app/_models';
 
-const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+const users: User[] = [{ id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'BNS' },
+  { id: 2, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {

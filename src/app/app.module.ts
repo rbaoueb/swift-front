@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -11,14 +11,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+import { NabSortableHeaderDirective } from './home';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NabSortableHeaderDirective
   ],
   imports: [
+    NgbModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

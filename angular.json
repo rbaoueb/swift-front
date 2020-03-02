@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "SwiftFront"
+  "defaultProject": "SwiftFront",
+  "cli": {
+    "analytics": "562b06e3-e6e6-4f8b-a3c9-88b31e5a2e17"
+  }
 }

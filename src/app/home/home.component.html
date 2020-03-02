@@ -1,10 +1,29 @@
-﻿<div class="card mt-4">
-  <h4 class="card-header">You're logged in with Angular 8 & JWT!!</h4>
-  <div class="card-body">
-    <h6>Users from secure api end point</h6>
-    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-    <ul *ngIf="users">
-      <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
-    </ul>
-  </div>
-</div>
+﻿<!--<div class="card mt-4">-->
+<!--  <h4 class="card-header">You're logged in with Angular 8 & JWT!!</h4>-->
+<!--  <div class="card-body">-->
+<!--    <h6>Users from secure api end point</h6>-->
+<!--    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>-->
+<!--    <ul *ngIf="users">-->
+<!--      <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>-->
+<!--    </ul>-->
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col" sortable="username" (sort)="onSort($event)">Login</th>
+    <th scope="col" sortable="lastName" (sort)="onSort($event)">Nom</th>
+    <th scope="col" sortable="firstName" (sort)="onSort($event)">Prenom</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ user.username }}</td>
+    <td>{{ user.lastName}}</td>
+    <td>{{ user.firstName}}</td>
+  </tr>
+  </tbody>
+</table>
+<!--  </div>-->
+<!--</div>-->
