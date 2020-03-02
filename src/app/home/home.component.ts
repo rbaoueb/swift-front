@@ -54,8 +54,6 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this.loading = false;
-
     if (direction === '') {
       this.sortedUsers = this.users;
     } else {

@@ -17,7 +17,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users; index as i">
+  <tr *ngFor="let user of sortedUsers; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>{{ user.username }}</td>
     <td>{{ user.lastName}}</td>
