@@ -1,9 +1,9 @@
 import {Component, OnInit, Directive, EventEmitter, Input, Output, QueryList, ViewChildren} from '@angular/core';
 import {first} from 'rxjs/operators';
 // @ts-ignore
-import {User} from '@app/_models';
+import {AvisExec} from '@app/_models';
 // @ts-ignore
-import {UserService, AuthenticationService} from '@app/_services';
+import {AvisExecService} from '@app/_services';
 
 export type SortDirection = 'asc' | 'desc' | '';
 const rotate: {[key: string]: SortDirection} = { asc: 'desc', desc: '', '': 'asc' };
@@ -39,12 +39,12 @@ export class NabSortableHeaderDirective {
 @Component({templateUrl: 'home.component.html'})
 export class HomeComponent implements OnInit {
   loading = false;
-  users: User[];
-  sortedUsers: User[];
+  allAvis: AvisExec[];
+  sortedAvis: AvisExec[];
 
   @ViewChildren(NabSortableHeaderDirective) headers: QueryList<NabSortableHeaderDirective>;
 
-  constructor(private userService: UserService) {
+  constructor(private avisExecService: AvisExecService) {
   }
 
   onSort({column, direction}: SortEvent) {
@@ -55,9 +55,9 @@ export class HomeComponent implements OnInit {
     });
 
     if (direction === '') {
-      this.sortedUsers = this.users;
+      this.sortedAvis = this.allAvis;
     } else {
-      this.sortedUsers = [...this.users].sort((a, b) => {
+      this.sortedAvis = [...this.allAvis].sort((a, b) => {
         const res = compare(a[column], b[column]);
         return direction === 'asc' ? res : -res;
       });
@@ -65,10 +65,10 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.loading = true;
-    this.userService.getAll().pipe(first()).subscribe(users => {
+    this.avisExecService.getAll().pipe(first()).subscribe(allAvis => {
       this.loading = false;
-      this.sortedUsers = users;
-      this.users = users;
+      this.sortedAvis = allAvis;
+      this.allAvis = allAvis;
     });
   }
 }

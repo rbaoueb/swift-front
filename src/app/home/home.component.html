@@ -1,29 +1,39 @@
-﻿<!--<div class="card mt-4">-->
-<!--  <h4 class="card-header">You're logged in with Angular 8 & JWT!!</h4>-->
-<!--  <div class="card-body">-->
-<!--    <h6>Users from secure api end point</h6>-->
-<!--    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>-->
-<!--    <ul *ngIf="users">-->
-<!--      <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>-->
-<!--    </ul>-->
-
-<table class="table table-striped">
+﻿<table class="table table-striped">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col" sortable="username" (sort)="onSort($event)">Login</th>
-    <th scope="col" sortable="lastName" (sort)="onSort($event)">Nom</th>
-    <th scope="col" sortable="firstName" (sort)="onSort($event)">Prenom</th>
+    <th scope="col" sortable="codeIsin" (sort)="onSort($event)">Code ISIN</th>
+    <th scope="col" sortable="descIsin" (sort)="onSort($event)">Desc ISIN</th>
+    <th scope="col" sortable="numAvis" (sort)="onSort($event)">Num Avis</th>
+
+    <th scope="col" sortable="numTransaction" (sort)="onSort($event)">Num Transaction</th>
+    <th scope="col" sortable="quantite" (sort)="onSort($event)">Quantité</th>
+    <th scope="col" sortable="dateComptable" (sort)="onSort($event)">Date comptable</th>
+    <th scope="col" sortable="mntNet" (sort)="onSort($event)">Mnt Net</th>
+    <th scope="col" sortable="codeAcheteur" (sort)="onSort($event)">Code Acheteur</th>
+
+    <th scope="col" sortable="codeVendeur" (sort)="onSort($event)">Code Vendeur</th>
+    <th scope="col" sortable="codeCompteDepot" (sort)="onSort($event)">Code Compte Dépot</th>
+    <th scope="col" sortable="type" (sort)="onSort($event)">type</th>
+    <th scope="col" sortable="exported" (sort)="onSort($event)">Etat</th>
+
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of sortedUsers; index as i">
+  <tr *ngFor="let avis of sortedAvis; index as i">
     <th scope="row">{{ i + 1 }}</th>
-    <td>{{ user.username }}</td>
-    <td>{{ user.lastName}}</td>
-    <td>{{ user.firstName}}</td>
+    <td>{{ avis.codeIsin }}</td>
+    <td>{{ avis.descIsin}}</td>
+    <td>{{ avis.numAvis}}</td>
+    <td>{{ avis.numTransaction}}</td>
+    <td>{{ avis.quantite}}</td>
+    <td>{{ avis.dateComptable}}</td>
+    <td>{{ avis.mntNet}}</td>
+    <td>{{ avis.codeAcheteur}}</td>
+    <td>{{ avis.codeVendeur}}</td>
+    <td>{{ avis.codeCompteDepot}}</td>
+    <td>{{ avis.type}}</td>
+    <td>{{ avis.exported}}</td>
   </tr>
   </tbody>
 </table>
-<!--  </div>-->
-<!--</div>-->
