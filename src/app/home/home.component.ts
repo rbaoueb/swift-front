@@ -36,7 +36,10 @@ export class NabSortableHeaderDirective {
   }
 }
 
-@Component({templateUrl: 'home.component.html'})
+@Component({
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
 export class HomeComponent implements OnInit {
   loading = false;
   allAvis: AvisExec[];
@@ -70,6 +73,18 @@ export class HomeComponent implements OnInit {
       this.sortedAvis = allAvis;
       this.allAvis = allAvis;
     });
+  }
+
+   cellStyle(value, row, index) {
+    alert('aaa');
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+
+    if (index % 2 === 0 && index / 2 < classes.length) {
+      return {
+        classes: classes[index / 2]
+      };
+    }
+    return {};
   }
 }
 
