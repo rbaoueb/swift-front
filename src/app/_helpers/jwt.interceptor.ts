@@ -20,7 +20,7 @@ export class JwtInterceptor implements HttpInterceptor {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': 'true',
           'Access-Control-Allow-Headers': 'Content-Type',
-          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, OPTIONS, DELETE, PATCH',
           Authorization: `Bearer ${currentUser.token}`,
           'Cache-Control': 'no-cache',
           Pragma: 'no-cache',
